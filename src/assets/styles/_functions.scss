@@ -1,0 +1,13 @@
+@function fluid($min-size, $max-size, $min-breakpoint, $max-breakpoint) {
+  @if $min-size < $max-size {
+    @return calc(
+      #{$min-size} + (#{$max-size} - #{$min-size}) *
+        ((100vw - #{$min-breakpoint}) / (#{$max-breakpoint} - #{$min-breakpoint}))
+    );
+  } @else {
+    @return calc(
+      #{$max-size} + (#{$min-size} - #{$max-size}) *
+        ((#{$max-breakpoint} - 100vw) / (#{$max-breakpoint} - #{$min-breakpoint}))
+    );
+  }
+}
