@@ -1,15 +1,20 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router'
+import { useAuthStore } from './stores/auth'
 import Header from './components/layout/AppHeader.vue'
 import Footer from './components/layout/AppFooter.vue'
 
 const route = useRoute()
+const authStore = useAuthStore()
 </script>
 
 <template>
   <div class="app" :class="{ 'app--dashboard': route.name === 'dashboard' }">
     <template v-if="route.name !== 'dashboard'">
-      <Header :show-navbar="!['login', 'register'].includes(String(route.name))" />
+      <Header
+        :show-navbar="!['login', 'register'].includes(String(route.name))"
+        :authenticated="authStore.isAuthenticated"
+      />
       <router-view />
       <Footer
         :show-tariffs="!['login', 'register'].includes(String(route.name))"

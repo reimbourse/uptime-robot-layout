@@ -4,10 +4,12 @@ import Navbar from '../ui/Navbar.vue'
 
 interface Props {
   showNavbar?: boolean
+  authenticated?: boolean
 }
 
 withDefaults(defineProps<Props>(), {
   showNavbar: true,
+  authenticated: false,
 })
 </script>
 
@@ -19,8 +21,11 @@ withDefaults(defineProps<Props>(), {
     <Navbar v-if="showNavbar" />
     <p v-else class="header__tagline">Мониторинг сайтов и API</p>
     <div class="header__actions">
-      <RouterLink :to="{ name: 'login' }" class="header__login">Войти</RouterLink>
-      <BaseButton text="Создать аккаунт" :to="{ name: 'register' }" />
+      <BaseButton v-if="authenticated" text="В панель" :to="{ name: 'dashboard' }" />
+      <template v-else>
+        <RouterLink :to="{ name: 'login' }" class="header__login">Войти</RouterLink>
+        <BaseButton text="Создать аккаунт" :to="{ name: 'register' }" />
+      </template>
     </div>
   </header>
 </template>
