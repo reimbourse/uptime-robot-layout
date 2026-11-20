@@ -64,7 +64,7 @@ withDefaults(defineProps<Props>(), {
   overflow-x: auto;
   background-color: v.$card-color;
   border: 1px solid v.$border-color;
-  border-radius: 20px;
+  border-radius: v.$border-radius-card;
 
   &__table {
     width: 100%;

@@ -55,7 +55,7 @@ const emit = defineEmits<{
     padding-block: f.fluid(16px, 16px, 1440px, 1920px);
     background-color: v.$bg-color;
     border: 1px solid v.$border-color;
-    border-radius: 12px;
+     border-radius: v.$border-radius-button;
     outline: none;
     font-family: v.$font-mono;
     font-weight: 400;

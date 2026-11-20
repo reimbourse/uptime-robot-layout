@@ -25,7 +25,7 @@ defineProps<Props>()
   padding: f.fluid(24px, 32px, 1440px, 1920px);
   background-color: v.$card-color;
   border: 1px solid v.$border-color;
-  border-radius: 20px;
+  border-radius: v.$border-radius-card;
 
   &__title {
     font-family: v.$font-head;

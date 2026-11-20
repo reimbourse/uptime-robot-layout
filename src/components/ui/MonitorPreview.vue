@@ -55,7 +55,7 @@ const checks: StatusType[] = Array.from({ length: 60 }, () => 'success')
   padding: f.fluid(24px, 32px, 1440px, 1920px);
   background-color: v.$card-color;
   border: 1px solid v.$border-color;
-  border-radius: 20px;
+  border-radius: v.$border-radius-card;
   text-align: left;
 
   @include m.mobile {

@@ -91,12 +91,9 @@ const statusPaths: Record<StatusType, string> = {
   <main class="dashboard">
     <header class="dashboard__header">
       <div class="dashboard__header-inner">
-        <div class="dashboard__brand-group">
-          <RouterLink to="/" class="dashboard__brand">
-            <img src="@/assets/icons/full-logo.svg" alt="Пульс" width="120" height="32" />
-          </RouterLink>
-          <RouterLink to="/" class="dashboard__home-link">← На главную</RouterLink>
-        </div>
+        <RouterLink to="/" class="dashboard__brand">
+          <img src="@/assets/icons/full-logo.svg" alt="Пульс" width="120" height="32" />
+        </RouterLink>
         <RouterLink to="/login" class="dashboard__logout" @click="logout">Выйти</RouterLink>
       </div>
     </header>
@@ -136,7 +133,11 @@ const statusPaths: Record<StatusType, string> = {
       </article>
 
       <div class="dashboard__filters">
-        <input type="search" placeholder="Найти по названию или адресу" aria-label="Поиск мониторов" />
+        <input
+          type="search"
+          placeholder="Найти по названию или адресу"
+          aria-label="Поиск мониторов"
+        />
         <button type="button">Все статусы</button>
         <button type="button">Обновить</button>
       </div>
@@ -223,12 +224,6 @@ const statusPaths: Record<StatusType, string> = {
     min-height: 72px;
   }
 
-  &__brand-group {
-    display: flex;
-    align-items: center;
-    gap: 28px;
-  }
-
   &__brand {
     flex-shrink: 0;
 
@@ -237,7 +232,6 @@ const statusPaths: Record<StatusType, string> = {
     }
   }
 
-  &__home-link,
   &__logout {
     color: v.$text-color;
     font-size: 13px;
@@ -304,7 +298,7 @@ const statusPaths: Record<StatusType, string> = {
     padding: 20px;
     background-color: v.$card-color;
     border: 1px solid v.$border-color;
-    border-radius: 12px;
+    border-radius: v.$border-radius-card;
 
     span {
       color: v.$muted-color;
@@ -316,9 +310,15 @@ const statusPaths: Record<StatusType, string> = {
       font-weight: 500;
     }
 
-    &--success strong { color: v.$accent-color; }
-    &--warning strong { color: v.$warning-color; }
-    &--danger strong { color: v.$danger-color; }
+    &--success strong {
+      color: v.$accent-color;
+    }
+    &--warning strong {
+      color: v.$warning-color;
+    }
+    &--danger strong {
+      color: v.$danger-color;
+    }
   }
 
   &__alert,
@@ -328,7 +328,7 @@ const statusPaths: Record<StatusType, string> = {
     justify-content: space-between;
     gap: 20px;
     padding: 18px;
-    border-radius: 10px;
+    border-radius: v.$border-radius-card;
   }
 
   &__alert {
@@ -360,7 +360,7 @@ const statusPaths: Record<StatusType, string> = {
       min-height: 44px;
       padding: 0 14px;
       border: 1px solid v.$border-color;
-      border-radius: 9px;
+      border-radius: v.$border-radius-button;
       outline: none;
       background: transparent;
       color: v.$text-color;
@@ -368,9 +368,15 @@ const statusPaths: Record<StatusType, string> = {
       font-size: 12px;
     }
 
-    input:focus { border-color: v.$accent-color; }
-    input::placeholder { color: v.$muted-color; }
-    button:hover { border-color: v.$accent-color; }
+    input:focus {
+      border-color: v.$accent-color;
+    }
+    input::placeholder {
+      color: v.$muted-color;
+    }
+    button:hover {
+      border-color: v.$accent-color;
+    }
   }
 
   &__table-wrap {
@@ -378,7 +384,7 @@ const statusPaths: Record<StatusType, string> = {
     margin-top: 24px;
     background-color: v.$card-color;
     border: 1px solid v.$border-color;
-    border-radius: 12px;
+    border-radius: v.$border-radius-card;
   }
 
   &__table {
@@ -424,9 +430,15 @@ const statusPaths: Record<StatusType, string> = {
   &__status {
     white-space: nowrap;
 
-    &--success { color: v.$accent-color; }
-    &--warning { color: v.$warning-color; }
-    &--danger { color: v.$danger-color; }
+    &--success {
+      color: v.$accent-color;
+    }
+    &--warning {
+      color: v.$warning-color;
+    }
+    &--danger {
+      color: v.$danger-color;
+    }
 
     .status-icon {
       display: inline-block;
@@ -454,7 +466,9 @@ const statusPaths: Record<StatusType, string> = {
     border: 1px solid v.$border-color;
     background-color: v.$card-color;
 
-    strong { color: v.$accent-color; }
+    strong {
+      color: v.$accent-color;
+    }
   }
 
   &__support {
@@ -463,7 +477,9 @@ const statusPaths: Record<StatusType, string> = {
     color: v.$text-color;
     font-size: 13px;
 
-    &:hover { color: v.$accent-color; }
+    &:hover {
+      color: v.$accent-color;
+    }
   }
 
   @include m.tablet {
@@ -489,15 +505,10 @@ const statusPaths: Record<StatusType, string> = {
       min-height: 64px;
     }
 
-    &__brand-group {
-      gap: 14px;
-    }
-
     &__brand img {
       width: 96px;
     }
 
-    &__home-link,
     &__logout {
       font-size: 11px;
     }
@@ -537,7 +548,9 @@ const statusPaths: Record<StatusType, string> = {
     &__filters {
       grid-template-columns: 1fr 1fr;
 
-      input { grid-column: 1 / -1; }
+      input {
+        grid-column: 1 / -1;
+      }
     }
 
     &__table-meta {

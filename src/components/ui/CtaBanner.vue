@@ -43,7 +43,7 @@ defineProps<Props>()
     padding: f.fluid(40px, 56px, 1440px, 1920px);
     background-color: v.$card-color;
     border: 1px solid v.$border-color;
-    border-radius: 24px;
+     border-radius: v.$border-radius-card;
 
     @include m.tablet {
       padding: 32px;

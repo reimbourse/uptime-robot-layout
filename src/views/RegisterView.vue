@@ -74,7 +74,7 @@ import BaseButton from '@/components/ui/BaseButton.vue'
     padding: f.fluid(28px, 32px, 1440px, 1920px);
     background-color: v.$card-color;
     border: 1px solid v.$border-color;
-    border-radius: 16px;
+     border-radius: v.$border-radius-card;
   }
 
   &__title {
@@ -125,7 +125,7 @@ import BaseButton from '@/components/ui/BaseButton.vue'
     min-height: 46px;
     padding: 0 14px;
     border: 1px solid v.$border-color;
-    border-radius: 10px;
+     border-radius: v.$border-radius-button;
     outline: none;
     background-color: v.$bg-color;
     color: v.$text-color;
@@ -148,7 +148,7 @@ import BaseButton from '@/components/ui/BaseButton.vue'
 
   &__submit {
     min-height: 46px;
-    border-radius: 10px;
+     border-radius: v.$border-radius-button;
     font-size: 14px;
   }
 

@@ -76,7 +76,7 @@ const login = () => {
     padding: f.fluid(28px, 32px, 1440px, 1920px);
     background-color: v.$card-color;
     border: 1px solid v.$border-color;
-    border-radius: 16px;
+     border-radius: v.$border-radius-card;
   }
 
   &__title {
@@ -119,7 +119,7 @@ const login = () => {
     min-height: 46px;
     padding: 0 14px;
     border: 1px solid v.$border-color;
-    border-radius: 10px;
+     border-radius: v.$border-radius-button;
     outline: none;
     background-color: v.$bg-color;
     color: v.$text-color;
@@ -150,7 +150,7 @@ const login = () => {
 
   &__submit {
     min-height: 46px;
-    border-radius: 10px;
+     border-radius: v.$border-radius-button;
     font-size: 14px;
   }
 

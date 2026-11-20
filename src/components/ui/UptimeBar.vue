@@ -34,7 +34,7 @@ withDefaults(defineProps<Props>(), {
   &__item {
     flex: 1;
     min-width: 0;
-    border-radius: 2px;
+     border-radius: v.$border-radius-indicator;
 
     &--success {
       background-color: v.$accent-color;
