@@ -18,16 +18,16 @@ withDefaults(defineProps<Props>(), {
     <div class="footer__top">
       <FooterBrand />
       <nav class="footer__nav" aria-label="Навигация в подвале">
-        <FooterLink v-if="showTariffs" href="#pricing">Тарифы</FooterLink>
-        <FooterLink v-if="showTelegram" href="#">Поддержка в Telegram</FooterLink>
+        <FooterLink v-if="showTariffs" to="/pricing">Тарифы</FooterLink>
+        <FooterLink v-if="showTelegram" to="#">Поддержка в Telegram</FooterLink>
       </nav>
     </div>
 
     <div class="footer__bottom">
       <p class="footer__copyright">© Пульс, 2026</p>
       <nav class="footer__legal" aria-label="Правовая информация">
-        <FooterLink href="#" muted>Политика конфиденциальности</FooterLink>
-        <FooterLink href="#" muted>Условия использования</FooterLink>
+        <FooterLink to="#" muted>Политика конфиденциальности</FooterLink>
+        <FooterLink to="#" muted>Условия использования</FooterLink>
       </nav>
     </div>
   </footer>

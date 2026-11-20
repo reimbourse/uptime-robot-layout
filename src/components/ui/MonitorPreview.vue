@@ -1,0 +1,144 @@
+<script setup lang="ts">
+import type { StatusType } from '@/types/status'
+import UptimeBar from './UptimeBar.vue'
+
+interface Column {
+  label: string
+  value: string
+  accent?: boolean
+}
+
+const columns: Column[] = [
+  { label: 'Сайт', value: 'example.com' },
+  { label: 'Статус', value: 'Работает', accent: true },
+  { label: 'Ответ сервера', value: '200 OK' },
+  { label: 'Время ответа', value: '184 мс' },
+]
+
+const checks: StatusType[] = Array.from({ length: 60 }, () => 'success')
+</script>
+
+<template>
+  <div class="monitor-preview">
+    <div class="monitor-preview__head">
+      <p class="monitor-preview__title">Всё важное — на одном экране</p>
+      <span class="monitor-preview__tag">Демо панели</span>
+    </div>
+
+    <dl class="monitor-preview__table">
+      <div v-for="column in columns" :key="column.label" class="monitor-preview__cell">
+        <dt class="monitor-preview__label">{{ column.label }}</dt>
+        <dd
+          class="monitor-preview__value"
+          :class="{ 'monitor-preview__value--accent': column.accent }"
+        >
+          {{ column.value }}
+        </dd>
+      </div>
+    </dl>
+
+    <UptimeBar class="monitor-preview__bar" :checks="checks" />
+
+    <div class="monitor-preview__foot">
+      <span>Последние проверки</span>
+      <span>Обновлено только что</span>
+    </div>
+  </div>
+</template>
+
+<style scoped lang="scss">
+@use '@/assets/styles/variables' as v;
+@use '@/assets/styles/functions' as f;
+@use '@/assets/styles/mixins' as m;
+
+.monitor-preview {
+  padding: f.fluid(24px, 32px, 1440px, 1920px);
+  background-color: v.$card-color;
+  border: 1px solid v.$border-color;
+  border-radius: 20px;
+  text-align: left;
+
+  @include m.mobile {
+    padding: 20px;
+  }
+
+  &__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  &__title {
+    font-family: v.$font-main;
+    font-weight: 600;
+    font-size: f.fluid(14px, 16px, 1440px, 1920px);
+    line-height: 1.2;
+    color: v.$text-color;
+  }
+
+  &__tag {
+    font-family: v.$font-main;
+    font-weight: 400;
+    font-size: f.fluid(11px, 12px, 1440px, 1920px);
+    line-height: 1;
+    text-transform: uppercase;
+    color: v.$muted-color;
+    white-space: nowrap;
+
+    @include m.mobile {
+      display: none;
+    }
+  }
+
+  &__table {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px f.fluid(32px, 40px, 1440px, 1920px);
+    margin-top: f.fluid(24px, 32px, 1440px, 1920px);
+  }
+
+  &__cell {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__label {
+    font-family: v.$font-main;
+    font-weight: 400;
+    font-size: f.fluid(12px, 13px, 1440px, 1920px);
+    line-height: 1;
+    color: v.$muted-color;
+  }
+
+  &__value {
+    font-family: v.$font-mono;
+    font-weight: 400;
+    font-size: f.fluid(12px, 13px, 1440px, 1920px);
+    line-height: 1;
+    color: v.$text-color;
+
+    &--accent {
+      font-family: v.$font-main;
+      color: v.$accent-color;
+    }
+  }
+
+  &__bar {
+    margin-top: f.fluid(24px, 32px, 1440px, 1920px);
+  }
+
+  &__foot {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: f.fluid(16px, 20px, 1440px, 1920px);
+    font-family: v.$font-main;
+    font-weight: 400;
+    font-size: f.fluid(12px, 13px, 1440px, 1920px);
+    line-height: 1;
+    color: v.$muted-color;
+  }
+}
+</style>

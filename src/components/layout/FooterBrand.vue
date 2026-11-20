@@ -2,9 +2,9 @@
 
 <template>
   <div class="footer-brand">
-    <a href="/" class="footer-brand__logo">
+    <RouterLink to="/" class="footer-brand__logo">
       <img src="@/assets/icons/full-logo.svg" alt="Пульс" width="120" height="32" />
-    </a>
+    </RouterLink>
     <p class="footer-brand__tagline">Мониторинг без лишнего шума</p>
   </div>
 </template>

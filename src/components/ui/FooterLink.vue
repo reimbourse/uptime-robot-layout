@@ -1,6 +1,8 @@
 <script setup lang="ts">
+import type { RouteLocationRaw } from 'vue-router'
+
 interface Props {
-  href: string
+  to: RouteLocationRaw
   muted?: boolean
 }
 
@@ -10,9 +12,9 @@ withDefaults(defineProps<Props>(), {
 </script>
 
 <template>
-  <a :href="href" class="footer-link" :class="{ 'footer-link--muted': muted }">
+  <RouterLink :to="to" class="footer-link" :class="{ 'footer-link--muted': muted }">
     <slot />
-  </a>
+  </RouterLink>
 </template>
 
 <style scoped lang="scss">
