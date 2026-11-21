@@ -50,6 +50,10 @@ const features: Feature[] = [
   padding-bottom: f.fluid(24px, 32px, 1440px, 1920px);
   @include m.container-padding;
 
+  @include m.tablet {
+    padding-top: f.fluid(32px, 48px, 480px, 1440)
+  }
+
   &__list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

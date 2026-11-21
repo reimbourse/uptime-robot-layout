@@ -52,6 +52,10 @@ const formatNumber = (index: number): string => String(index + 1).padStart(2, '0
   padding-bottom: f.fluid(48px, 64px, 1440px, 1920px);
   @include m.container-padding;
 
+  @include m.tablet {
+    padding-top: f.fluid(18px, 48px, 480px, 1440px)
+  }
+
   &__list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -61,6 +65,8 @@ const formatNumber = (index: number): string => String(index + 1).padStart(2, '0
     @include m.tablet {
       grid-template-columns: 1fr;
       gap: 32px;
+      padding-top: f.fluid(32px, 48px, 480px, 1440px)
+
     }
   }
 }
