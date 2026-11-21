@@ -81,7 +81,6 @@ defineProps<Props>()
   }
 
   &__description {
-    // резервируем две строки, чтобы цены в карточках выстраивались в одну линию
     min-height: 3em;
     margin-top: f.fluid(16px, 20px, 1440px, 1920px);
     font-family: v.$font-main;

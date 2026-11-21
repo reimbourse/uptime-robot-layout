@@ -78,6 +78,10 @@ const description =
   padding-top: f.fluid(48px, 64px, 1440px, 1920px);
   padding-bottom: f.fluid(64px, 96px, 1440px, 1920px);
   @include m.container-padding;
+  
+  @include m.tablet {
+    gap: f.fluid(12px, 16px, 375px, 960px)
+  }
 
   &__note {
     margin-top: f.fluid(20px, 24px, 1440px, 1920px);
@@ -100,6 +104,7 @@ const description =
     @include m.tablet {
       grid-template-columns: 1fr;
       max-width: 480px;
+      gap: f.fluid(12px, 16px, 375px, 960px)
     }
   }
 

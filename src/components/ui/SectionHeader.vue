@@ -37,8 +37,13 @@ withDefaults(defineProps<Props>(), {
 @use '@/assets/styles/mixins' as m;
 
 .section-header {
+
   display: flex;
   flex-direction: column;
+
+  @include m.tablet {
+    margin-top: 36px;
+  }
 
   &--centered {
     align-items: center;
