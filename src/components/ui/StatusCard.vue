@@ -38,7 +38,7 @@ defineProps<Props>()
   padding: f.fluid(28px, 32px, 1440px, 1920px);
   background-color: v.$card-color;
   border: 1px solid v.$border-color;
-   border-radius: v.$border-radius-card;
+  border-radius: v.$border-radius-card;
 
   &--warning {
     --status-color: #{v.$warning-color};

@@ -52,7 +52,7 @@ withDefaults(defineProps<Props>(), {
   padding-inline: f.fluid(24px, 24px, 1440px, 1920px);
   padding-top: f.fluid(16px, 16px, 1440px, 1920px);
   padding-bottom: f.fluid(16px, 16px, 1440px, 1920px);
-   border-radius: v.$border-radius-button;
+  border-radius: v.$border-radius-button;
   white-space: nowrap;
   transition:
     opacity 0.2s ease,

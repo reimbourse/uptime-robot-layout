@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 import type { StatusType } from '@/types/status'
 import UptimeBar from './UptimeBar.vue'
 
@@ -15,7 +16,30 @@ const columns: Column[] = [
   { label: 'Время ответа', value: '184 мс' },
 ]
 
-const checks: StatusType[] = Array.from({ length: 60 }, () => 'success')
+const TABLET_QUERY = '(max-width: 960px)'
+const CHECKS_DESKTOP = 60
+const CHECKS_MOBILE = 25
+
+const isCompact = ref(false)
+let mql: MediaQueryList | null = null
+
+const onChange = (e: MediaQueryListEvent) => {
+  isCompact.value = e.matches
+}
+
+onMounted(() => {
+  mql = window.matchMedia(TABLET_QUERY)
+  isCompact.value = mql.matches
+  mql.addEventListener('change', onChange)
+})
+
+onBeforeUnmount(() => {
+  mql?.removeEventListener('change', onChange)
+})
+
+const checks = computed<StatusType[]>(() =>
+  Array.from({ length: isCompact.value ? CHECKS_MOBILE : CHECKS_DESKTOP }, () => 'success'),
+)
 </script>
 
 <template>
@@ -139,6 +163,21 @@ const checks: StatusType[] = Array.from({ length: 60 }, () => 'success')
     font-size: f.fluid(12px, 13px, 1440px, 1920px);
     line-height: 1;
     color: v.$muted-color;
+  }
+}
+
+.uptime-bar {
+  display: flex;
+  gap: 4px;
+  width: 100%;
+
+  @media (max-width: 960px) {
+    gap: 2px;
+  }
+
+  &__item {
+    flex: 1 1 0;
+    min-width: 0;
   }
 }
 </style>

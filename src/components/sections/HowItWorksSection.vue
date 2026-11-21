@@ -60,6 +60,7 @@ const formatNumber = (index: number): string => String(index + 1).padStart(2, '0
 
     @include m.tablet {
       grid-template-columns: 1fr;
+      gap: 32px;
     }
   }
 }

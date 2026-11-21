@@ -27,6 +27,9 @@ defineProps<Props>()
   border: 1px solid v.$border-color;
   border-radius: v.$border-radius-card;
 
+  @include m.mobile {
+    padding: f.fluid(20px, 24px, 480px, 1440px);;
+  }
   &__title {
     font-family: v.$font-head;
     font-weight: 600;
@@ -46,6 +49,10 @@ defineProps<Props>()
     font-size: f.fluid(14px, 16px, 1440px, 1920px);
     line-height: 1.5;
     color: v.$muted-color;
+
+    @include m.mobile {
+    margin-top: f.fluid(12px, 16px, 480px, 1440px);;
+  }
   }
 }
 </style>
